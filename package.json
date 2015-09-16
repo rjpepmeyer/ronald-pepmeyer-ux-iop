@@ -2,20 +2,7 @@
   "name": "ron_pepmeyer_onboarding",
   "version": "1.0.0",
   "description": "Ron Pepmeyer's UX onboarding project",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rjpepmeyer/ronald-pepmeyer-ux-iop.git"
-  },
   "author": "Ron Pepmeyer",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/rjpepmeyer/ronald-pepmeyer-ux-iop/issues"
-  },
-  "homepage": "https://github.com/rjpepmeyer/ronald-pepmeyer-ux-iop#readme",
   "dependencies": {
     "angular": "^1.4.5"
   }
