@@ -1,0 +1,9 @@
+{
+  "name": "ron_pepmeyer_onboarding",
+  "version": "1.0.0",
+  "description": "Ron Pepmeyer's UX onboarding project",
+  "author": "Ron Pepmeyer",
+  "dependencies": {
+    "angular": "^1.4.5"
+  }
+}
