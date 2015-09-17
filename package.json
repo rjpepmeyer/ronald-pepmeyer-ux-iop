@@ -1,9 +1,14 @@
 {
   "name": "ron_pepmeyer_onboarding",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Ron Pepmeyer's UX onboarding project",
   "author": "Ron Pepmeyer",
   "dependencies": {
     "angular": "^1.4.5"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-connect": "^2.2.0",
+    "gulp-help": "^1.6.1"
   }
 }
