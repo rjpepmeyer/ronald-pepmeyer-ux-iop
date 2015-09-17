@@ -1,0 +1,88 @@
+$body-font-stack: Helvetica, Arial, sans-serif;
+$head-font-stack: Garamond, Georgia, serif;
+
+@mixin border-radius ($r1, $r2, $r3, $r4) {
+  -webkit-border-radius: $r1 $r2 $r3 $r4;
+     -moz-border-radius: $r1 $r2 $r3 $r4;
+      -ms-border-radius: $r1 $r2 $r3 $r4;
+          border-radius: $r1 $r2 $r3 $r4;
+}
+
+@mixin box-shadow($xoffset, $yoffset, $blur, $color) {
+  -webkit-box-shadow: $xoffset $yoffset $blur $color;
+     -moz-box-shadow: $xoffset $yoffset $blur $color;
+          box-shadow: $xoffset $yoffset $blur $color;
+}
+
+body {
+  background-color: #ccc;
+}
+
+main {
+  font-family: $body-font-stack;
+  background-color: #fff;
+  width: 800px;
+  padding: 1em 1em 2em 1em;
+  margin: 0 auto 0 auto;
+  @include box-shadow(0.25em, 0.25em, 0.5em, #999);
+  @include border-radius(0.5em, 0.5em, 0.5em, 0.5em);
+}
+
+header {
+  color: #fff;
+  background-color: #69c;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 1em;
+  @include border-radius(0.5em, 0.5em, 0, 0);
+}
+
+nav {
+  margin: 0 auto 0 auto;
+  box-sizing: border-box;
+  width: 100%;
+  padding: .25em 0 .25em 0;
+  background-color: #bdf;
+  @include border-radius(0, 0, 0.5em, 0.5em);
+
+  ul {
+    padding: 0 0 0 1em;
+
+    li {
+      display: inline;
+      margin: 0 .5em 0 0;
+    }
+  }
+}
+
+h1, h2 {
+  font-family: $head-font-stack;
+}
+
+section ul li {
+  margin: .25em 0 .25em 0;
+}
+
+label {
+  width: 360px;
+  display: block;
+  margin: .25em 0 .25em 0;
+}
+
+input {
+  width: 200px;
+  float: right;
+}
+
+input:after {
+  content: " ";
+  display: block;
+  clear: both;
+  visibility: hidden;
+}
+
+button {
+  margin: .5em 0 .5em 0;
+  position: relative;
+  left: 160px;
+}
