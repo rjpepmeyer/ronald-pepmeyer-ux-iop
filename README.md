@@ -1,15 +1,11 @@
 # ronald-pepmeyer-ux-iop
 
-## description
+# description
 
-This project contains web pages (user profile, list, create user, edit user)
-that are currently static and not connected to a database. It is hosted at
-localhost:1820 and supports livereload.
+This project contains web pages (user profile, list, create user, edit user) that are currently static and not connected to a database.
 
-## how to use
+# how to use
 
-Run 'gulp' while in this directory (/ronald-pepmeyer-ux-iop).
+# dependencies
 
-## dependencies
-
-AngularJS, Gulp, Gulp-Connect
+AngularJS
