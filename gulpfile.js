@@ -6,14 +6,13 @@ var sass    = require('gulp-sass');
 var jshint  = require('gulp-jshint');
 var stylish = require('jshint-stylish');
 
-gulp.task('default', 'Hosts /src and watches for changes', ['connect','watch','lint']);
+gulp.task('default', 'Hosts /src and watches for changes', ['connect','watch','lint','sass']);
 
 gulp.task('connect', 'Hosts /src at localhost:1820', function () {
   connect.server({
-    root: './src',
+    root: 'src',
     port: 1820,
-    livereload: true,
-    fallback: './src/partials/user_profile.html'
+    livereload: true
   });
 });
 
