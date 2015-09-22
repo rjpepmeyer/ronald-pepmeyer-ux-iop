@@ -13,4 +13,4 @@ Run 'gulp' while in this directory (/ronald-pepmeyer-ux-iop).
 
 ## dependencies
 
-AngularJS, Gulp, Gulp-Connect, Gulp-Help, Gulp-Sass
+AngularJS, Gulp, Gulp-Connect, Gulp-Help, Gulp-Sass, Gulp-JSHint
