@@ -7,6 +7,7 @@
     <meta charset="utf-8" />
     <title>User Profile - Onboarding (Ronald Pepmeyer)</title>
     <link rel="stylesheet" href="styles/style.css" />
+    <script src="scripts/button.js"></script>
 
   </head>
 
@@ -28,15 +29,20 @@
 
       <section>
         <h2> User Profile </h2>
+        <button id="toggleButton" name='toggle-visibility' onClick="toggle('additionalInfo','toggleButton');">Show less info</button>
         <ul>
           <li> <strong> First name: </strong> Mildred </li>
           <li> <strong> Last name: </strong> Smedley </li>
-          <li> <strong> Phone: </strong> (319) 555-1234 </li>
-          <li> <strong> Email: </strong> msmedley@example.com </li>
+          <span id ="additionalInfo" style="display: inline">
+            <li> <strong> Phone: </strong> (319) 555-1234 </li>
+            <li> <strong> Email: </strong> msmedley@example.com </li>
+          </span>
         </ul>
+
       </section>
 
     </main>
+
   </body>
 
 </html>

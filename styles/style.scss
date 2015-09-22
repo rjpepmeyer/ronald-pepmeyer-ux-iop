@@ -14,6 +14,13 @@ $head-font-stack: Garamond, Georgia, serif;
           box-shadow: $xoffset $yoffset $blur $color;
 }
 
+@mixin clearfix() {
+  content: " ";
+  display: block;
+  clear: both;
+  visibility: hidden;
+}
+
 body {
   background-color: #ccc;
 }
@@ -59,8 +66,46 @@ h1, h2 {
   font-family: $head-font-stack;
 }
 
-section ul li {
-  margin: .25em 0 .25em 0;
+section {
+
+  ul {
+    clear: both;
+
+    li {
+      margin: .25em 0 .25em 0;
+    }
+  }
+
+  button {
+    float: left;
+    position: relative;
+    left: 0;
+    margin-bottom: 1em;
+    margin-left: 2em;
+    background-color: #bdf;
+    color: #222;
+    font-size: .8em;
+    border-width: 1px 2px 2px 1px;
+    border-style: solid;
+    border-color: #bbb #666 #666 #bbb;
+    outline: none;
+    @include border-radius(.5em, .5em, .5em, .5em);
+  }
+
+  button:hover {
+    background-color: #9cf;
+    color: #000;
+    cursor: pointer;
+  }
+
+  button:active {
+    border-width: 2px 1px 1px 2px;
+    border-color: #666 #bbb #bbb #666;
+  }
+
+  button:after {
+    @include clearfix();
+  }
 }
 
 label {
@@ -75,10 +120,7 @@ input {
 }
 
 input:after {
-  content: " ";
-  display: block;
-  clear: both;
-  visibility: hidden;
+  @include clearfix();
 }
 
 button {
