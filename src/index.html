@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="sass/main.css" />
     <script src="js/button.js"></script>
     <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-ui-router/build/angular-ui-router.js"></script>
+    <script src="node_modules/angular-resource/angular-resource.js"></script>
     <script src="js/mymodule.js"></script>
 
   </head>
@@ -22,15 +24,14 @@
 
       <nav>
         <ul>
-          <li><a href="../../src/partials/user_profile.html">User Profile</a></li>
-          <li><a href="../../src/partials/users_list.html">Users List</a></li>
-          <li><a href="../../src/partials/create_new_user.html">Create New User</a></li>
-          <li><a href="../../src/partials/edit_user.html">Edit User</a></li>
+          <li><a ui-sref='user-profile'>User Profile</a></li>
+          <li><a ui-sref='users-list'>Users List</a></li>
+          <li><a ui-sref='create-new-user'>Create New User</a></li>
+          <li><a ui-sref='edit-user'>Edit User</a></li>
         </ul>
       </nav>
 
-      <section>
-        <h2> Index </h2>
+      <section ui-view>
       </section>
 
     </main>
