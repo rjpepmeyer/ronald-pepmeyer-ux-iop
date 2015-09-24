@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="en" ng-app="onboarding">
+
+  <head>
+
+    <meta charset="utf-8" />
+    <title>Onboarding (Ronald Pepmeyer)</title>
+    <link rel="stylesheet" href="sass/main.css" />
+    <script src="js/button.js"></script>
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-ui-router/build/angular-ui-router.js"></script>
+    <script src="node_modules/angular-resource/angular-resource.js"></script>
+    <script src="js/mymodule.js"></script>
+
+  </head>
+
+  <body>
+    <main>
+
+      <header>
+        <h1> Ronald Pepmeyer Onboarding Project </h1>
+      </header>
+
+      <nav>
+        <ul>
+          <li><a ui-sref='user-profile'>User Profile</a></li>
+          <li><a ui-sref='users-list'>Users List</a></li>
+          <li><a ui-sref='create-new-user'>Create New User</a></li>
+          <li><a ui-sref='edit-user'>Edit User</a></li>
+        </ul>
+      </nav>
+
+      <section ui-view>
+      </section>
+
+    </main>
+
+  </body>
+
+</html>
