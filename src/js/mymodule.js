@@ -1,7 +1,7 @@
 var onboarding = angular.module('onboarding', ['ui.router', 'ngResource']);
 
 onboarding.config(function($stateProvider, $urlRouterProvider) {
-	$urlRouterProvider.otherwise("/index");
+	$urlRouterProvider.otherwise("/user-profile");
 
 	$stateProvider
 		.state('user-profile', {
