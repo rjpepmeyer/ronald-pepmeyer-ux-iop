@@ -1,22 +1,26 @@
-onboarding.config(function($stateProvider, $urlRouterProvider) {
-	$urlRouterProvider.otherwise("/user-profile");
+onboarding.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+	$urlRouterProvider.otherwise('/');
 
 	$stateProvider
-		.state('user-profile', {
-			url: '/user-profile',
-			templateUrl: 'partials/user_profile.html'
+		.state('userProfile', {
+			url: '/userProfile',
+			controller: 'getUsersController',
+			templateUrl: '../partials/user_profile.html'
 		})
-		.state('users-list', {
-			url: '/users-list',
-			templateUrl: 'partials/users_list.html'
+		.state('usersList', {
+			url: '/usersList',
+			controller: 'getUsersController',
+			templateUrl: '../partials/users_list.html'
 		})
-		.state('edit-user', {
-			url: '/edit-user',
-			templateUrl: 'partials/edit_user.html'
+		.state('editUser', {
+			url: '/editUser',
+			controller: 'editUserController',
+			templateUrl: '../partials/edit_user.html'
 		})
-		.state('create-new-user', {
-			url: '/create-new-user',
-			templateUrl: 'partials/create_new_user.html'
+		.state('createNewUser', {
+			url: '/createNewUser',
+			controller: 'createUserController',
+			templateUrl: '../partials/create_new_user.html'
 		});
 
-});
+}]);

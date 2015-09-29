@@ -12,6 +12,16 @@
     <script src="node_modules/angular-ui-router/build/angular-ui-router.js"></script>
     <script src="node_modules/angular-resource/angular-resource.js"></script>
     <script src="js/mymodule.js"></script>
+    <script src="js/routes.js"></script>
+
+    <!-- Services -->
+    <script src="js/services/usersService.js"></script>
+
+    <!-- Controllers -->
+    <script src="js/controllers/createUserController.js"></script>
+    <script src="js/controllers/getUsersController.js"></script>
+    <script src="js/controllers/editUserController.js"></script>
+    <script src="js/controllers/getUsersController.js"></script>
 
   </head>
 
@@ -24,10 +34,10 @@
 
       <nav>
         <ul>
-          <li><a ui-sref='user-profile'>User Profile</a></li>
-          <li><a ui-sref='users-list'>Users List</a></li>
-          <li><a ui-sref='create-new-user'>Create New User</a></li>
-          <li><a ui-sref='edit-user'>Edit User</a></li>
+          <li><a ui-sref='userProfile'>User Profile</a></li>
+          <li><a ui-sref='usersList'>Users List</a></li>
+          <li><a ui-sref='createNewUser'>Create New User</a></li>
+          <li><a ui-sref='editUser'>Edit User</a></li>
         </ul>
       </nav>
 
