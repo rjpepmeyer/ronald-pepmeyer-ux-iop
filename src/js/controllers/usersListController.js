@@ -1,4 +1,4 @@
-onboarding.controller('getUsersController', ['$scope', 'usersService', function($scope, usersService) {
+onboarding.controller('usersListController', ['$scope', 'usersService', function($scope, usersService) {
 	$scope.getUsers = function() {
 		usersService.getUsers().then(function(result) {
 			$scope.users = result;

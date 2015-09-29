@@ -4,12 +4,12 @@ onboarding.config(['$stateProvider', '$urlRouterProvider', function($stateProvid
 	$stateProvider
 		.state('userProfile', {
 			url: '/userProfile',
-			controller: 'getUsersController',
+			controller: 'userProfileController',
 			templateUrl: '../partials/user_profile.html'
 		})
 		.state('usersList', {
 			url: '/usersList',
-			controller: 'getUsersController',
+			controller: 'usersListController',
 			templateUrl: '../partials/users_list.html'
 		})
 		.state('editUser', {
