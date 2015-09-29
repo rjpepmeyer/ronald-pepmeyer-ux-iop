@@ -22,3 +22,29 @@ onboarding.config(function($stateProvider, $urlRouterProvider) {
 		});
 
 });
+
+onboarding.factory('Create', function($resource) {
+	return $resource('localhost:24149/users:id', {}, {
+		query: {method: PUT, params: {id: @id}, isArray: false}
+	})
+})
+.factory('Get', function($resource) {
+	return $resource('localhost:24149/users:id', {}, {
+		query: {method: GET, params: {id: @id}, isArray: false}
+	})
+})
+.factory('List', function($resource) {
+	return $resource('localhost:24149:/users', {}, {
+		query: {method: GET, params: {}, isArray: true}
+	})
+})
+.factory('Update', function($resource) {
+	return $resource('localhost:24149:/users:id', {}, {
+		query: {method: PUT, params: {id: @id}, isArray: false}
+	})
+})
+.factory('Delete', function($resource) {
+	return $resource('localhost:24149:/users:id', {}, {
+		query: {method: DELETE, params: {id: @id}, isArray: false}
+	})
+});
