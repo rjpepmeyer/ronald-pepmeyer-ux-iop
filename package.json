@@ -4,7 +4,9 @@
   "description": "Ron Pepmeyer's UX onboarding project",
   "author": "Ron Pepmeyer",
   "dependencies": {
-    "angular": "^1.4.5"
+    "angular": "^1.4.5",
+    "angular-ui-router": "^0.2.15",
+    "angular-resource": "^1.4.6"
   },
   "devDependencies": {
     "gulp": "^3.9.0",
