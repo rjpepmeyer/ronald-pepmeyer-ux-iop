@@ -11,8 +11,7 @@ gulp.task('default', 'Hosts /src and watches for changes', ['connect','watch','l
 gulp.task('connect', 'Hosts /src at localhost:1820', function () {
   connect.server({
     port: 1820,
-    livereload: true,
-    fallback: '/src/#/index.html'
+    livereload: true
   });
 });
 
