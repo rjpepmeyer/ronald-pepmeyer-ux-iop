@@ -1,11 +1,16 @@
-onboarding.controller('usersListController', ['$scope', 'usersService', function($scope, usersService) {
-	$scope.getUsers = function() {
+onboarding.controller('usersListController', ['$scope', '$stateParams',
+'usersService', function($scope, $stateParams, usersService) {
+
+	$scope.id = $stateParams.id;
+
+	function getUsers() {
 		usersService.getUsers().then(function(result) {
 			$scope.users = result;
 		}, function(error) {
 			console.log(error);
-		}).finally(function() {
-			console.log($scope.users);
 		});
 	}
+
+	getUsers();
+
 }]);

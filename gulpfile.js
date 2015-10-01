@@ -34,6 +34,6 @@ gulp.task('sass', 'Returns .css from .scss and .sass files', function() {
 
 gulp.task('watch', 'Watches for changes in /src', function() {
   gulp.watch(['./partials/*', './sass/*', './js/*'] ['reload']);
-  gulp.watch(['./sass/*.scss', './sass/*.sass'], ['sass']);
+  gulp.watch(['./sass/*.scss', './sass/*.sass'] ['sass']);
   gulp.watch('./js/*.js',['lint']);
 });

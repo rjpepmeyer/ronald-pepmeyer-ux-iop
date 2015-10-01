@@ -1,5 +1,11 @@
 <h2>Users List</h2>
-<button ng-click="getUsers()"> Get Users </button>
-<ul ng-repeat="user in users">
-  <li><strong>{{user.firstName}} {{user.lastName}}</strong> {{user.email}} {{user.phone}} </li>
+
+<p> Select a user from this list to view, edit, or delete: </p>
+<ul ng-model="id">
+  <li ng-repeat="user in users">
+    <a ui-sref="userProfile({id: user._id})">
+      {{user.firstName}} {{user.lastName}}
+    </a>
+  </li>
 </ul>
+<p> Or, <a ui-sref="createNewUser">create a user!</a> </p>

@@ -20,7 +20,6 @@
     <!-- Controllers -->
     <script src="js/controllers/createUserController.js"></script>
     <script src="js/controllers/usersListController.js"></script>
-    <script src="js/controllers/editUserController.js"></script>
     <script src="js/controllers/userProfileController.js"></script>
 
   </head>
@@ -34,15 +33,19 @@
 
       <nav>
         <ul>
-          <li><a ui-sref='userProfile'>User Profile</a></li>
-          <li><a ui-sref='usersList'>Users List</a></li>
+          <strong> Navigation: </strong>
+          <li><a ui-sref='usersList'>Select User</a></li>|
           <li><a ui-sref='createNewUser'>Create New User</a></li>
-          <li><a ui-sref='editUser'>Edit User</a></li>
         </ul>
       </nav>
 
       <section ui-view>
       </section>
+
+      <footer>
+        This is a Banno UX onboarding project created by Ron J. Pepmeyer.
+        <a href="mailto:ronald.pepmeyer@banno.com">Contact</mailto>
+      </footer>
 
     </main>
 

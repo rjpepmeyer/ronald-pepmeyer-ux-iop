@@ -31,16 +31,22 @@ main {
   width: 800px;
   padding: 1em 1em 2em 1em;
   margin: 0 auto 0 auto;
-  @include box-shadow(0.25em, 0.25em, 0.5em, #999);
+  @include box-shadow(0.25em, 0.5em, 0.5em, #999);
   @include border-radius(0.5em, 0.5em, 0.5em, 0.5em);
+  color: #333;
+}
+
+strong {
+  color: #456;
 }
 
 header {
-  color: #fff;
+  color: #eff7ff;
   background-color: #69c;
   box-sizing: border-box;
   width: 100%;
   padding: 1em;
+  text-shadow: -2px -2px #456;
   @include border-radius(0.5em, 0.5em, 0, 0);
 }
 
@@ -50,14 +56,29 @@ nav {
   width: 100%;
   padding: .25em 0 .25em 0;
   background-color: #bdf;
-  @include border-radius(0, 0, 0.5em, 0.5em);
+  color: #456;
+  text-shadow: 1px 1px 1px #fff;
+
 
   ul {
     padding: 0 0 0 1em;
 
+    strong {
+      padding-right: 1em;
+    }
+
     li {
       display: inline;
       margin: 0 .5em 0 0;
+
+      a {
+        color: #15a;
+        text-shadow: none;
+      }
+
+      a:hover {
+        color: #00b;
+      }
     }
   }
 }
@@ -68,8 +89,27 @@ h1, h2 {
 
 section {
 
+  a {
+    color: #15a;
+  }
+
+  a:hover {
+    color: #00b;
+  }
+
+  h2 {
+    color: #345;
+    font-size: 1.25em;
+    box-sizing: border-box;
+    width: 100%;
+    border-bottom: 1px solid #999;
+    padding-bottom: .5em;
+  }
+
   ul {
     clear: both;
+    list-style-type: none;
+    padding-left: 0;
 
     li {
       margin: .25em 0 .25em 0;
@@ -81,8 +121,8 @@ section {
   float: left;
   position: relative;
   left: 0;
+  top: -.5em;
   margin-bottom: 1em;
-  margin-left: 2em;
   background-color: #bdf;
   color: #222;
   font-size: .8em;
@@ -119,12 +159,33 @@ input {
   float: right;
 }
 
+input[readonly] {
+    display: none;
+}
+
 input:after {
   @include clearfix();
 }
 
-button {
-  margin: .5em 0 .5em 0;
-  position: relative;
-  left: 160px;
+form {
+  button {
+    margin: .5em 0 .5em 0;
+    position: relative;
+    left: 160px;
+  }
+}
+
+footer {
+  font-style: italic;
+  color: #666;
+  font-size: .75em;
+  text-align: center;
+  box-sizing: border-box;
+  margin-top: 3em;
+  padding: 1em 1em 0 1em;
+  border-top: 1px solid #999;
+
+  a {
+    color: #006;
+  }
 }

@@ -1,11 +1,34 @@
-onboarding.controller('userProfileController', ['$scope', 'usersService', function($scope, usersService) {
-	$scope.getUser = function(user) {
-		usersService.getUser(user).then(function(result) {
-			$scope.user = result;
+onboarding.controller('userProfileController', ['$scope', '$stateParams',
+'usersService', function($scope, $stateParams, usersService) {
+
+	function getUser() {
+		usersService.getUsers().then(function(result) {
+			angular.forEach(result, function(user) {
+				if (user._id === $stateParams.id) {
+					$scope.user = user;
+				}
+			});
 		}, function(error) {
 			console.log(error);
-		}).finally(function() {
-			console.log($scope.user);
 		});
-	};
+	}
+
+	$scope.deleteUser = function(user) {
+		usersService.deleteUser(user).then(function(result) {
+			console.log(result);
+		}, function(error) {
+			console.log(error);
+		});
+	}
+
+	$scope.editUser = function(options) {
+		usersService.editUser($stateParams.id, options).then(function(result) {
+			console.log(result);
+		}, function(error) {
+			console.log(error);
+		});
+	}
+
+	getUser();
+
 }]);

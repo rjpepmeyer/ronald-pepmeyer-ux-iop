@@ -1,4 +1,6 @@
-onboarding.controller('createUserController', ['$scope', 'usersService', function($scope, usersService) {
+onboarding.controller('createUserController', ['$scope', '$stateParams',
+'usersService', function($scope, $stateParams, usersService) {
+
 	$scope.createUser = function(user) {
 		usersService.createUser(user).then(function(result) {
 			console.log(result);
