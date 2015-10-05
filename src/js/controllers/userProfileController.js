@@ -1,5 +1,5 @@
-onboarding.controller('userProfileController', ['$scope', '$stateParams',
-'usersService', function($scope, $stateParams, usersService) {
+onboarding.controller('userProfileController', ['$scope', '$stateParams', '$state',
+'usersService', function($scope, $stateParams, $state, usersService) {
 
 	function getUser() {
 		usersService.getUsers().then(function(result) {
@@ -16,6 +16,7 @@ onboarding.controller('userProfileController', ['$scope', '$stateParams',
 	$scope.deleteUser = function(user) {
 		usersService.deleteUser(user).then(function(result) {
 			console.log(result);
+			$state.go('usersList');
 		}, function(error) {
 			console.log(error);
 		});

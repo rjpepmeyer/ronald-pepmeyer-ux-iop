@@ -5,22 +5,20 @@ onboarding.config(['$stateProvider', '$urlRouterProvider', function($stateProvid
 		.state('userProfile', {
 			url: '/userProfile/:id',
 			controller: 'userProfileController',
-			templateUrl: 'partials/user_profile.html'
+			directive: 'userProfileDirective',
+			template: '<user-profile></user-profile>'
 		})
 		.state('usersList', {
 			url: '/usersList/:id',
 			controller: 'usersListController',
-			templateUrl: 'partials/users_list.html'
-		})
-		.state('editUser', {
-			url: '/editUser/:id',
-			controller: 'editUserController',
-			templateUrl: 'partials/edit_user.html'
+			directive: 'userListDirective',
+			template: '<users-list></users-list>'
 		})
 		.state('createNewUser', {
 			url: '/createNewUser/:id',
 			controller: 'createUserController',
-			templateUrl: 'partials/create_new_user.html'
+			directive: 'createUserDirective',
+			template: '<create-new-user></create-new-user>'
 		});
 
 }]);
