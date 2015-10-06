@@ -1,8 +1,35 @@
 <h2>Create New User Form</h2>
-<form action="#" method="POST">
-  <label> First name    <input type="text" name="firstName"></input></label>
-  <label> Last name     <input type="text" name="lastName"></input></label>
-  <label> Phone number  <input type="text" name="phone"></input></label>
-  <label> Email address <input type="text" name="email"></input></label>
-  <button type="submit" value="submit"> Submit </button>
+<form name="createUserForm" novalidate>
+  <label>
+    <p> First name </p>
+    <input type="text" name="firstName" ng-model="user.firstName" ng-minlength="1" required />
+    <p class="warning" ng-show="createUserForm.firstName.$invalid">
+      * first name required
+    </p>
+  </label>
+
+  <label>
+    <p> Last name </p>
+    <input type="text" name="lastName" ng-model="user.lastName" ng-minlength="1" required/>
+    <p class="warning" ng-show="createUserForm.lastName.$invalid">
+      * last name required
+    </p>
+  </label>
+
+  <label>
+    <p> Phone number </p>
+    <input type="text" name="phone" ng-model="user.phone" ng-pattern="phoneRegEx" ng-minlength="10" required/>
+    <p class="warning" ng-show="createUserForm.phone.$invalid">
+      * valid phone number required
+    </p>
+  </label>
+
+  <label>
+    <p> Email address </p>
+    <input type="email" name="email" ng-model="user.email" required/>
+    <p class="warning" ng-show="createUserForm.email.$invalid">
+      * valid email required
+    </p>
+  </label>
+  <button type="submit" value="submit" ng-click="createUser(user)" ng-disabled="createUserForm.$invalid" required/>Submit</button>
 </form>
