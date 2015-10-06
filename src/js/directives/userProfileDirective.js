@@ -1,5 +1,5 @@
-onboarding.directive('userProfile', function() {
+onboarding.directive('$templateCache', 'userProfile', function($templateCache) {
 	return {
-		templateUrl: 'partials/user_profile.html'
+		template: $templateCache.get('user_profile.html')
 	}
 });

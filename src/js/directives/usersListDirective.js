@@ -1,5 +1,5 @@
-onboarding.directive('usersList', function() {
+onboarding.directive('$templateCache', 'usersList', function($templateCache) {
 	return {
-		templateUrl: 'partials/users_list.html'
+		template: $templateCache.get('users_list.html')
 	}
 });
