@@ -1,11 +1,14 @@
 onboarding.controller('userProfileController', ['$scope', '$stateParams', '$state',
 'usersService', function($scope, $stateParams, $state, usersService) {
 
+	$scope.phoneRegEx = /^[0-9( )-]+$/;
+
 	function getUser() {
 		usersService.getUsers().then(function(result) {
 			angular.forEach(result, function(user) {
 				if (user._id === $stateParams.id) {
 					$scope.user = user;
+					$scope.userCopy = angular.copy(user);
 				}
 			});
 		}, function(error) {
@@ -25,6 +28,7 @@ onboarding.controller('userProfileController', ['$scope', '$stateParams', '$stat
 	$scope.editUser = function(options) {
 		usersService.editUser($stateParams.id, options).then(function(result) {
 			console.log(result);
+			$state.reload();
 		}, function(error) {
 			console.log(error);
 		});

@@ -17,7 +17,7 @@ gulp.task('connect', 'Hosts /src at localhost:1820', function () {
 });
 
 gulp.task('lint', function() {
-  return gulp.src('./js/*.js')
+  return gulp.src('./js/**/*.js')
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'));
 });
@@ -33,7 +33,7 @@ gulp.task('sass', 'Returns .css from .scss and .sass files', function() {
 });
 
 gulp.task('watch', 'Watches for changes in /src', function() {
-  gulp.watch(['./partials/*', './sass/*', './js/*'] ['reload']);
+  gulp.watch(['./partials/**', './sass/*.scss', './sass/*.sass', './js/**/*.js'] ['reload']);
   gulp.watch(['./sass/*.scss', './sass/*.sass'] ['sass']);
-  gulp.watch('./js/*.js',['lint']);
+  gulp.watch('./js/**/*.js',['lint']);
 });

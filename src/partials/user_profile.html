@@ -2,33 +2,48 @@
 <button id="toggleButton" name='toggle-visibility'
 onClick="toggle('additionalInfo','toggleButton');">Show less info</button>
 <ul>
-  <li> <strong> First name: </strong> {{user.firstName}} </li>
-  <li> <strong> Last name: </strong> {{user.lastName}} </li>
+  <li> <strong> First name: </strong> {{userCopy.firstName}} </li>
+  <li> <strong> Last name: </strong> {{userCopy.lastName}} </li>
   <span id ="additionalInfo" style="display: inline">
-    <li> <strong> Phone: </strong> {{user.phone}} </li>
-    <li> <strong> Email: </strong> {{user.email}} </li>
+    <li> <strong> Phone: </strong> {{userCopy.phone}} </li>
+    <li> <strong> Email: </strong> {{userCopy.email}} </li>
   </span>
 </ul>
 
-<h2>Edit User</h2>
-<form ng-model="modUser">
-  <label> First name
-    <input type="text" ng-model="user.firstName"></input>
+<h2> Edit User </h2>
+<form ng-model="modUser" name="editUserForm">
+
+	<label>
+		<p> First name </p>
+    <input type="text" name="firstName" ng-model="user.firstName" ng-minlength="1" required />
+    <p class="warning" ng-show="editUserForm.firstName.$invalid">
+      * required
+    </p>
   </label>
-  <label> Last name
-    <input type="text" ng-model="user.lastName"></input>
+
+  <label>
+    <p> Last name </p>
+    <input type="text" name="lastName" ng-model="user.lastName" ng-minlength="1" required/>
+    <p class="warning" ng-show="editUserForm.lastName.$invalid">
+      * required
+    </p>
   </label>
-  <label> Phone number
-    <input type="text" ng-model="user.phone"></input>
+
+  <label>
+    <p> Phone number </p>
+    <input type="text" name="phone" ng-model="user.phone" ng-pattern="phoneRegEx" ng-minlength="10" required/>
+    <p class="warning" ng-show="editUserForm.phone.$invalid">
+      * valid phone number required
+    </p>
   </label>
-  <input ng-model="user.email" readonly></input>
-  <button type="submit" value="submit" ng-click="editUser(user)">
+
+  <button type="submit" value="submit" ng-click="editUser(user)" ng-disabled="editUserForm.$invalid">
     Submit
   </button>
 </form>
 
-<h2>Delete User</h2>
-Delete {{user.firstName}} {{user.lastName}} forever?
+<h2> Delete User </h2>
+Delete {{userCopy.firstName}} {{userCopy.lastName}} forever?
 <button ng-click="deleteUser(user._id)">
-  Delete {{user.firstName}} {{user.lastName}}
+  Delete {{userCopy.firstName}} {{userCopy.lastName}}
 </button>
