@@ -22,6 +22,7 @@
 	"node"					: true,			// Protractor tests
 
 	"globals"				: {
+		"onboarding"  : true,
 		"angular"			: false,
     "document"    : false,
 
