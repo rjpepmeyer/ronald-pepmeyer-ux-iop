@@ -10,7 +10,7 @@ var concat = require('gulp-concat');
 var templateCache = require('gulp-angular-templatecache');
 
 gulp.task('default', 'Hosts /dist and watches for changes', ['connect', 'clean',
-'copy', 'cacheTemplates', 'concatScripts', 'lint', 'sass', 'watch', 'TESTTASK']);
+'copy', 'cacheTemplates', 'concatScripts', 'lint', 'sass', 'watch']);
 
 gulp.task('cacheTemplates', ['clean', 'sass'], function () {
   return gulp.src('src/partials/*.html')
@@ -27,13 +27,6 @@ gulp.task('concatScripts', ['clean', 'cacheTemplates', 'lint'], function() {
   return gulp.src(['./dist/*.js', './src/js/*.js', './src/js/services/*.js', './src/js/controllers/*.js', './temp/*.js', './src/js/directives/*.js'])
     .pipe(concat('app.js'))
     .pipe(gulp.dest('./dist/js/'));
-});
-
-//TESTING
-gulp.task('TESTTASK', ['concatScripts'], function () {
-  return gulp.src('./dist/js/*.js')
-    .pipe(jshint())
-    .pipe(jshint.reporter('JSHint-Stylish'));
 });
 
 gulp.task('connect', 'Hosts /dist at localhost:1820', function () {
