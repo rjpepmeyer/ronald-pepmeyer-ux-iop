@@ -1,49 +1,49 @@
 <h2> User Profile </h2>
-<button id="toggleButton" name='toggle-visibility'
-onClick="toggle('additionalInfo','toggleButton');">Show less info</button>
+<button id='toggleButton' name='toggle-visibility'
+onClick="toggle('additionalInfo','toggleButton')">Show less info</button>
 <ul>
   <li> <strong> First name: </strong> {{user.firstName}} </li>
   <li> <strong> Last name: </strong> {{user.lastName}} </li>
-  <span id ="additionalInfo" style="display: inline">
+  <span id ='additionalInfo' style='display: inline'>
     <li> <strong> Phone: </strong> {{user.phone}} </li>
     <li> <strong> Email: </strong> {{user.email}} </li>
   </span>
 </ul>
 
 <h2> Edit User </h2>
-<form name="editUserForm">
+<form name='editUserForm'>
 
 	<label>
 		<p> First name </p>
-    <input type="text" name="firstName" ng-model="userCopy.firstName" ng-minlength="1" required/>
-    <p class="warning" ng-show="editUserForm.firstName.$invalid">
+    <input type='text' name='firstName' ng-model='userCopy.firstName' ng-minlength='1' required/>
+    <p class='warning' ng-show='editUserForm.firstName.$invalid'>
       * required
     </p>
   </label>
 
   <label>
     <p> Last name </p>
-    <input type="text" name="lastName" ng-model="userCopy.lastName" ng-minlength="1" required/>
-    <p class="warning" ng-show="editUserForm.lastName.$invalid">
+    <input type='text' name='lastName' ng-model='userCopy.lastName' ng-minlength='1' required/>
+    <p class='warning' ng-show='editUserForm.lastName.$invalid'>
       * required
     </p>
   </label>
 
   <label>
     <p> Phone number </p>
-    <input type="text" name="phone" ng-model="userCopy.phone" ng-pattern="phoneRegEx" ng-minlength="10" required/>
-    <p class="warning" ng-show="editUserForm.phone.$invalid">
+    <input type='text' name='phone' ng-model='userCopy.phone' ng-pattern='phoneRegEx' ng-minlength='10' required/>
+    <p class='warning' ng-show='editUserForm.phone.$invalid'>
       * valid phone number required
     </p>
   </label>
 
-  <button type="submit" value="submit" ng-click="editUser(userCopy)" ng-disabled="editUserForm.$invalid">
+  <button type='submit' value='submit' ng-click='editUser(userCopy)' ng-disabled='editUserForm.$invalid'>
     Submit
   </button>
 </form>
 
 <h2> Delete User </h2>
 Delete {{user.firstName}} {{user.lastName}} forever?
-<button ng-click="deleteUser(user._id)">
+<button ng-click='deleteUser(user._id)'>
   Delete {{user.firstName}} {{user.lastName}}
 </button>

@@ -1,3 +1,5 @@
+'use strict';
+
 onboarding.controller('userProfileController', ['$scope', '$stateParams', '$state',
 'usersService', function($scope, $stateParams, $state, usersService) {
 
@@ -23,7 +25,7 @@ onboarding.controller('userProfileController', ['$scope', '$stateParams', '$stat
 		}, function(error) {
 			console.log(error);
 		});
-	}
+	};
 
 	$scope.editUser = function(options) {
 		usersService.editUser($stateParams.id, options).then(function(result) {
@@ -32,7 +34,7 @@ onboarding.controller('userProfileController', ['$scope', '$stateParams', '$stat
 		}, function(error) {
 			console.log(error);
 		});
-	}
+	};
 
 	getUser();
 

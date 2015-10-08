@@ -10,13 +10,12 @@ var concat = require('gulp-concat');
 var templateCache = require('gulp-angular-templatecache');
 
 gulp.task('default', 'Hosts /dist and watches for changes', ['connect', 'clean',
-'copy', 'cacheTemplates', 'concatScripts', 'lint', 'sass', 'watch']);
+'copy', 'cacheTemplates', 'concatScripts', 'lint', 'sass', 'watch', 'TESTTASK']);
 
-gulp.task('cacheTemplates', function () {
-  var TEMPLATE_HEADER = 'onboarding.run([\'$templateCache\', function($templateCache) {';
-  return gulp.src('./src/partials/*.html')
-    .pipe(templateCache())
-    .pipe(gulp.dest('./temp'));
+gulp.task('cacheTemplates', ['clean', 'sass'], function () {
+  return gulp.src('src/partials/*.html')
+    .pipe(templateCache('template.js', { templateHeader: 'onboarding.run([\'$templateCache\', function($templateCache) {'}))
+    .pipe(gulp.dest('temp'));
 });
 
 gulp.task('clean', 'Cleans dist/ and temp/', function() {
@@ -24,10 +23,17 @@ gulp.task('clean', 'Cleans dist/ and temp/', function() {
       .pipe(clean());
 });
 
-gulp.task('concatScripts', function() {
-  return gulp.src(['./dist/*.js', './temp/*.js', './src/js/**/*.js'])
+gulp.task('concatScripts', ['clean', 'cacheTemplates', 'lint'], function() {
+  return gulp.src(['./dist/*.js', './src/js/*.js', './src/js/services/*.js', './src/js/controllers/*.js', './temp/*.js', './src/js/directives/*.js'])
     .pipe(concat('app.js'))
     .pipe(gulp.dest('./dist/js/'));
+});
+
+//TESTING
+gulp.task('TESTTASK', ['concatScripts'], function () {
+  return gulp.src('./dist/js/*.js')
+    .pipe(jshint())
+    .pipe(jshint.reporter('JSHint-Stylish'));
 });
 
 gulp.task('connect', 'Hosts /dist at localhost:1820', function () {
@@ -44,7 +50,7 @@ gulp.task('copy', 'Copies index from src to dist', function () {
 });
 
 gulp.task('lint', function() {
-  return gulp.src('./js/**/*.js')
+  return gulp.src(['./src/js/*.js', './src/js/**/*.js', './src/js/button.js'])
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'));
 });
@@ -53,7 +59,7 @@ gulp.task('reload', 'Reloads files from /src to host', function() {
   connect.reload();
 });
 
-gulp.task('sass', 'Returns .css from .scss and .sass files', function() {
+gulp.task('sass', 'Returns .css from .scss and .sass files', ['clean'], function() {
   gulp.src(['./src/sass/*.scss', './src/sass/*.sass'])
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./dist/sass/'));

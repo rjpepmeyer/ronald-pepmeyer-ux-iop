@@ -1,5 +1,9 @@
-onboarding.directive('$templateCache', 'createNewUser', function($templateCache) {
+'use strict';
+
+onboarding.directive('createNewUser', function($templateCache) {
 	return {
-		template: $templateCache.get('create_new_user.html')
-	}
+		restrict: 'E',
+		templateUrl: 'create_new_user.html',
+		replace: false
+	};
 });
