@@ -1,3 +1,5 @@
+'use strict';
+
 onboarding.controller('usersListController', ['$scope', '$stateParams',
 'usersService', function($scope, $stateParams, usersService) {
 

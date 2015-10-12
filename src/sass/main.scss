@@ -23,6 +23,7 @@ $head-font-stack: Garamond, Georgia, serif;
 
 body {
   background-color: #cdcdcd;
+  padding-top: 1em;
 }
 
 main {
@@ -62,6 +63,7 @@ nav {
 
   ul {
     padding: 0 0 0 1em;
+    margin-top: .5em;
 
     strong {
       padding-right: 1em;
@@ -117,35 +119,16 @@ section {
   }
 }
 
-#toggleButton {
-  float: left;
-  position: relative;
-  left: 0;
-  top: -.5em;
-  margin-bottom: 1em;
-  background-color: #bdf;
-  color: #222;
-  font-size: .8em;
-  border-width: 1px 2px 2px 1px;
-  border-style: solid;
-  border-color: #bbb #666 #666 #bbb;
-  outline: none;
-  @include border-radius(.5em, .5em, .5em, .5em);
-}
-
-#toggleButton:hover {
-  background-color: #9cf;
-  color: #000;
-  cursor: pointer;
-}
-
-#toggleButton:active {
-  border-width: 2px 1px 1px 2px;
-  border-color: #666 #bbb #bbb #666;
-}
-
 #toggleButton:after {
   @include clearfix();
+}
+
+#deleteButton {
+  margin-left: 1em;
+}
+
+#toggleButton {
+  margin-bottom: 1em;
 }
 
 form {
@@ -186,7 +169,7 @@ form {
 footer {
   font-style: italic;
   color: #666;
-  font-size: .75em;
+  font-size: .85em;
   text-align: center;
   box-sizing: border-box;
   margin-top: 3em;
@@ -196,4 +179,46 @@ footer {
   a {
     color: #006;
   }
+}
+
+.nav-tabs {
+  border-color: #999;
+  margin-top: 1em;
+
+  li {
+    margin-right: .25em;
+
+    a {
+      border-color: #999;
+      background-color: #eee;
+      color: #15a;
+      font-weight: 500;
+    }
+
+    a:hover {
+      border-color: #999;
+      color: #00b;
+      text-decoration: underline;
+    }
+  }
+
+  li.active a {
+    border-color: #999 #999 transparent #999;
+    color: #15a;
+  }
+
+  li.active a:hover {
+    border-color: #999 #999 transparent #999;
+    color: #15a;
+    text-decoration: none;
+  }
+
+  li.active a:focus {
+    border-color: #999 #999 transparent #999;
+    color: #15a;
+  }
+}
+
+.tab-pane {
+  padding-top: 2em;
 }

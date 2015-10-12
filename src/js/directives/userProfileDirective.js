@@ -1,5 +1,9 @@
-onboarding.directive('userProfile', function() {
+'use strict';
+
+onboarding.directive('userProfile', function($templateCache) {
 	return {
-		templateUrl: 'partials/user_profile.html'
-	}
+		restrict: 'E',
+		templateUrl: 'user_profile.html',
+		replace: false
+	};
 });

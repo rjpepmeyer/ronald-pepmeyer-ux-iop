@@ -1,35 +1,35 @@
 <h2>Create New User Form</h2>
-<form name="createUserForm" novalidate>
+<form name='createUserForm' novalidate>
   <label>
     <p> First name </p>
-    <input type="text" name="firstName" ng-model="user.firstName" ng-minlength="1" required />
-    <p class="warning" ng-show="createUserForm.firstName.$invalid">
-      * first name required
+    <input type='text' name='firstName' ng-model='user.firstName' ng-minlength='1' required />
+    <p class='warning' ng-show='createUserForm.firstName.$invalid && createUserForm.firstName.$dirty'>
+      * required
     </p>
   </label>
 
   <label>
     <p> Last name </p>
-    <input type="text" name="lastName" ng-model="user.lastName" ng-minlength="1" required/>
-    <p class="warning" ng-show="createUserForm.lastName.$invalid">
-      * last name required
+    <input type='text' name='lastName' ng-model='user.lastName' ng-minlength='1' required/>
+    <p class='warning' ng-show='createUserForm.lastName.$invalid && createUserForm.lastName.$dirty'>
+      * required
     </p>
   </label>
 
   <label>
     <p> Phone number </p>
-    <input type="text" name="phone" ng-model="user.phone" ng-pattern="phoneRegEx" ng-minlength="10" required/>
-    <p class="warning" ng-show="createUserForm.phone.$invalid">
+    <input type='text' name='phone' ng-model='user.phone' ng-pattern='phoneRegEx' ng-minlength='10' required/>
+    <p class='warning' ng-show='createUserForm.phone.$invalid && createUserForm.phone.$dirty'>
       * valid phone number required
     </p>
   </label>
 
   <label>
     <p> Email address </p>
-    <input type="email" name="email" ng-model="user.email" required/>
-    <p class="warning" ng-show="createUserForm.email.$invalid">
+    <input type='email' name='email' ng-model='user.email' required/>
+    <p class='warning' ng-show='createUserForm.email.$invalid && createUserForm.email.$dirty'>
       * valid email required
     </p>
   </label>
-  <button type="submit" value="submit" ng-click="createUser(user)" ng-disabled="createUserForm.$invalid" required/>Submit</button>
+  <button type='submit' value='submit' ng-click='createUser(user)' ng-disabled='createUserForm.$invalid' required/>Submit</button>
 </form>

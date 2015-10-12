@@ -4,7 +4,7 @@
 
 This project contains web pages (user list, user profile, create new user) and
 allows the user to create users, edit users, and delete users from a database.
-It is hosted at localhost:1820.
+It builds from /src into /dist and hosts that at localhost:1820.
 
 ## how to use
 

@@ -1,5 +1,9 @@
-onboarding.directive('usersList', function() {
+'use strict';
+
+onboarding.directive('usersList', function($templateCache) {
 	return {
-		templateUrl: 'partials/users_list.html'
-	}
+		restrict: 'E',
+		templateUrl: 'users_list.html',
+		replace: false
+	};
 });

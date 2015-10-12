@@ -1,7 +1,9 @@
+'use strict';
+
 onboarding.controller('userProfileController', ['$scope', '$stateParams', '$state',
 'usersService', function($scope, $stateParams, $state, usersService) {
 
-	$scope.phoneRegEx = /^[0-9( )-]+$/;
+	$scope.phoneRegEx = /^\(?(\d{3})\)?[-|' ']?(\d{3})[-|' ']?(\d{4})$/;
 
 	function getUser() {
 		usersService.getUsers().then(function(result) {
@@ -17,13 +19,15 @@ onboarding.controller('userProfileController', ['$scope', '$stateParams', '$stat
 	}
 
 	$scope.deleteUser = function(user) {
-		usersService.deleteUser(user).then(function(result) {
-			console.log(result);
-			$state.go('usersList');
-		}, function(error) {
-			console.log(error);
-		});
-	}
+		if (confirm('Are you sure you want to delete this user?')) {
+			usersService.deleteUser(user).then(function(result) {
+				console.log(result);
+				$state.go('usersList');
+			}, function(error) {
+				console.log(error);
+			});
+		}
+	};
 
 	$scope.editUser = function(options) {
 		usersService.editUser($stateParams.id, options).then(function(result) {
@@ -32,7 +36,7 @@ onboarding.controller('userProfileController', ['$scope', '$stateParams', '$stat
 		}, function(error) {
 			console.log(error);
 		});
-	}
+	};
 
 	getUser();
 
