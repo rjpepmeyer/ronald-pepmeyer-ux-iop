@@ -8,9 +8,10 @@ var stylish = require('jshint-stylish');
 var clean = require('gulp-clean');
 var concat = require('gulp-concat');
 var templateCache = require('gulp-angular-templatecache');
+var Server = require('karma').Server;
 
 gulp.task('default', 'Hosts /dist and watches for changes', ['connect', 'clean',
-'copy', 'cacheTemplates', 'concatScripts', 'lint', 'sass', 'watch']);
+'copy', 'cacheTemplates', 'concatScripts', 'lint', 'sass', 'tdd', 'watch']);
 
 gulp.task('cacheTemplates', ['clean', 'sass'], function () {
   return gulp.src('src/partials/*.html')
@@ -56,6 +57,25 @@ gulp.task('sass', 'Returns .css from .scss and .sass files', ['clean'], function
   gulp.src(['./src/sass/*.scss', './src/sass/*.sass'])
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./dist/sass/'));
+});
+
+/**
+ * Run test once and exit
+ */
+gulp.task('test', ['concatScripts'], function (done) {
+  new Server({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, done).start();
+});
+
+/**
+ * Watch for file changes and re-run tests on each change
+ */
+gulp.task('tdd', ['concatScripts'], function (done) {
+  new Server({
+    configFile: __dirname + '/karma.conf.js'
+  }, done).start();
 });
 
 gulp.task('watch', 'Watches for changes in /src', function() {
