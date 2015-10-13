@@ -15,11 +15,11 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'node_modules/angular/angular.js',
-      'node_modules/angular-resource/angular-resource.js',
-      'node_modules/angular-ui-bootstrap/ui-bootstrap.js',
-      'node_modules/angular-ui-router/build/angular-ui-router.js',
-      'dist/js/app.js'
+      '../node_modules/angular/angular.js',
+      '../node_modules/angular-resource/angular-resource.js',
+      '../node_modules/angular-ui-bootstrap/ui-bootstrap.js',
+      '../node_modules/angular-ui-router/build/angular-ui-router.js',
+      '../dist/js/app.js'
     ],
 
 

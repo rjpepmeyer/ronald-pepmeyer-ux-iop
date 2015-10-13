@@ -64,7 +64,7 @@ gulp.task('sass', 'Returns .css from .scss and .sass files', ['clean'], function
  */
 gulp.task('test', ['concatScripts'], function (done) {
   new Server({
-    configFile: __dirname + '/karma.conf.js',
+    configFile: __dirname + '/test/karma.conf.js',
     singleRun: true
   }, done).start();
 });
@@ -74,7 +74,7 @@ gulp.task('test', ['concatScripts'], function (done) {
  */
 gulp.task('tdd', ['concatScripts'], function (done) {
   new Server({
-    configFile: __dirname + '/karma.conf.js'
+    configFile: __dirname + '/test/karma.conf.js'
   }, done).start();
 });
 
