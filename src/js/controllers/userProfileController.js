@@ -3,8 +3,6 @@
 onboarding.controller('userProfileController', ['$scope', '$stateParams', '$state',
 'usersService', function($scope, $stateParams, $state, usersService) {
 
-	$scope.phoneRegEx = /^\(?(\d{3})\)?[-|' ']?(\d{3})[-|' ']?(\d{4})$/;
-
 	function getUser() {
 		usersService.getUsers().then(function(result) {
 			angular.forEach(result, function(user) {

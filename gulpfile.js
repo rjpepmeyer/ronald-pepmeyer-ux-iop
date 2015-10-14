@@ -11,11 +11,13 @@ var templateCache = require('gulp-angular-templatecache');
 var Server = require('karma').Server;
 
 gulp.task('default', 'Hosts /dist and watches for changes', ['connect', 'clean',
-'copy', 'cacheTemplates', 'concatScripts', 'lint', 'sass', 'tdd', 'watch']);
+'copy', 'cacheTemplates', 'concatScripts', 'lint', 'sass', 'tdd', 'test',
+'watch']);
 
 gulp.task('cacheTemplates', ['clean', 'sass'], function () {
   return gulp.src('src/partials/*.html')
-    .pipe(templateCache('template.js', { templateHeader: 'onboarding.run([\'$templateCache\', function($templateCache) {'}))
+    .pipe(templateCache('template.js', { templateHeader:
+      'onboarding.run([\'$templateCache\', function($templateCache) {'}))
     .pipe(gulp.dest('temp'));
 });
 
@@ -25,7 +27,8 @@ gulp.task('clean', 'Cleans dist/ and temp/', function() {
 });
 
 gulp.task('concatScripts', ['clean', 'cacheTemplates', 'lint'], function() {
-  return gulp.src(['./dist/*.js', './src/js/*.js', './src/js/services/*.js', './src/js/controllers/*.js', './temp/*.js', './src/js/directives/*.js'])
+  return gulp.src(['./dist/*.js', './src/js/*.js', './src/js/services/*.js',
+  './src/js/controllers/*.js', './temp/*.js', './src/js/directives/*.js'])
     .pipe(concat('app.js'))
     .pipe(gulp.dest('./dist/js/'));
 });
@@ -53,25 +56,21 @@ gulp.task('reload', 'Reloads files from /src to host', function() {
   connect.reload();
 });
 
-gulp.task('sass', 'Returns .css from .scss and .sass files', ['clean'], function() {
+gulp.task('sass', 'Returns .css from .scss/.sass files', ['clean'], function() {
   gulp.src(['./src/sass/*.scss', './src/sass/*.sass'])
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./dist/sass/'));
 });
 
-/**
- * Run test once and exit
- */
 gulp.task('test', ['concatScripts'], function (done) {
   new Server({
     configFile: __dirname + '/test/karma.conf.js',
     singleRun: true
-  }, done).start();
+  }, function() {
+      done();
+  });
 });
 
-/**
- * Watch for file changes and re-run tests on each change
- */
 gulp.task('tdd', ['concatScripts'], function (done) {
   new Server({
     configFile: __dirname + '/test/karma.conf.js'

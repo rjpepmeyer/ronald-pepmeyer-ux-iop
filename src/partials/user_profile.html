@@ -32,7 +32,7 @@
 
       <label>
         <p> Phone number </p>
-        <input type='text' name='phone' ng-model='userCopy.phone' ng-pattern='phoneRegEx' ng-minlength='10' required/>
+        <input type='text' name='phone' ng-model='userCopy.phone' ng-pattern="/^\(?(\d{3})\)?[-|' ']?(\d{3})[-|' ']?(\d{4})$/" ng-minlength='10' required/>
         <p class='warning' ng-show='editUserForm.phone.$invalid'>
           * valid phone number required
         </p>

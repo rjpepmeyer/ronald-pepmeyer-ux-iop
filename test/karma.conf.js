@@ -19,7 +19,9 @@ module.exports = function(config) {
       '../node_modules/angular-resource/angular-resource.js',
       '../node_modules/angular-ui-bootstrap/ui-bootstrap.js',
       '../node_modules/angular-ui-router/build/angular-ui-router.js',
-      '../dist/js/app.js'
+      '../node_modules/angular-mocks/angular-mocks.js',
+      '../dist/js/app.js',
+      'client/unit/*.js'
     ],
 
 
