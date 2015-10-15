@@ -10,15 +10,15 @@ describe('usersListController', function() {
 
 	beforeEach(inject(function($injector, $rootScope, $controller) {
 		scope = $rootScope.$new();
-		$httpBackend = $injector.get ('$httpBackend');
-		controller = $controller('userListController', {$scope: scope});
-		$httpBackend.expectGET(url).respond(200, [testUser]);
+		httpBackend = $injector.get ('$httpBackend');
+		controller = $controller('usersListController', {$scope: scope});
+		httpBackend.expectGET(url).respond(200, [testUser]);
 	}));
 
 	it('queries the user list from the server', function () {
-		var results = scope.getUsers();
-		expect(results).toEqual([testUser]);
-    $httpBackend.flush();
+		httpBackend.expectGET(url).respond(200, [testUser]);
+    httpBackend.flush();
+		expect(scope.users [0].firstName).toEqual(testUser.firstName);
 	});
 
 });
