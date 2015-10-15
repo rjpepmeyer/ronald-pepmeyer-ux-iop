@@ -1,7 +1,6 @@
 describe('usersListController', function() {
 	beforeEach(module('onboarding'));
 
-	var onboarding = angular.module('onboarding');
 	var scope, controller;
 	var url = 'http://localhost:24149/users';
 	var testUser = {firstName: 'Bruce', lastName: 'Wayne', email:
