@@ -6,8 +6,6 @@ describe('usersListController', function() {
 	var testUser = {firstName: 'Bruce', lastName: 'Wayne', email:
 	'bwayne@example.com', phone: '(111) 222-3333'};
 
-	// USER LIST TEST
-
 	beforeEach(inject(function($injector, $rootScope, $controller) {
 		scope = $rootScope.$new();
 		httpBackend = $injector.get ('$httpBackend');
