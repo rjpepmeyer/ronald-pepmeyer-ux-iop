@@ -3,8 +3,9 @@ describe ('directivesTest', function() {
 
 	var compile, httpBackend, rootScope;
 
-	beforeEach(inject(function($compile, $rootScope, $injector) {
+	beforeEach(inject(function($compile, $rootScope, $injector, $templateCache) {
 		compile = $compile;
+		templateCache = $templateCache;
 		httpBackend = $injector.get ('$httpBackend');
 		scope = $rootScope.$new();
 	}));
@@ -14,11 +15,8 @@ describe ('directivesTest', function() {
 		scope.$digest();
 		expect(element.html()).toContain("Select a user from this list");
 	});
-
-	// DOESN'T WORK, RELATED TO UI-BOOTSTRAP
+	
 	it('tests the user profile directive', function() {
-		httpBackend.expectGET('template/tabs/tab.html').respond(200);
-	 	httpBackend.expectGET('template/tabs/tabset.html').respond(200);
 		var element = compile('<user-profile></user-profile>')(scope);
 		scope.$digest();
 		expect(element.html()).toContain("Show less info");

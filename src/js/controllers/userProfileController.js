@@ -16,11 +16,13 @@ onboarding.controller('userProfileController', ['$scope', '$stateParams', '$stat
 		});
 	}
 
-	$scope.deleteUser = function(options) {
-		usersService.deleteUser($stateParams.id, options).then(function(result) {
+	$scope.deleteUser = function() {
+		usersService.deleteUser($stateParams.id).then(function(result) {
+			$scope.valid = true;
 			console.log(result);
 			$state.go('usersList');
 		}, function(error) {
+			$scope.valid = false;
 			console.log(error);
 		});
 	};

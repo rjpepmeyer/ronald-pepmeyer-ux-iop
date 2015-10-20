@@ -34,12 +34,10 @@ describe('userProfileController', function() {
 
 	it('deletes the user', function() {
 		httpBackend.expectGET(url).respond(200, testUsers);
-		httpBackend.expectDELETE(url + '/1').respond();
-		scope.deleteUser(testUser);
+		httpBackend.expectDELETE(url + '/1').respond(200);
+		scope.deleteUser();
 		httpBackend.flush();
-		/*************************************
-		* Is this enough for this unit test? *
-		*************************************/
+		expect(scope.valid).toEqual(true);
 	})
 
 });

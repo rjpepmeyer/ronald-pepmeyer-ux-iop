@@ -6,18 +6,18 @@ describe('createUserController', function() {
 	var testUser = {firstName: 'Bruce', lastName: 'Wayne', email:
 	'bwayne@example.com', phone: '(111) 222-3333'};
 
-	beforeEach(inject(function($rootScope, $controller) {
+	beforeEach(inject(function($injector, $rootScope, $controller) {
 		scope = $rootScope.$new();
+		httpBackend = $injector.get ('$httpBackend');
 		controller = $controller('createUserController', {$scope: scope});
 	}));
 
 	it('sends a user object with the inputted values', function() {
-		scope.user = {};
-		scope.user.firstName = 'Bruce';
-		scope.user.lastName = 'Wayne';
-		scope.user.email = 'bwayne@example.com';
-		scope.user.phone = '(111) 222-3333';
-		expect(scope.user).toEqual(testUser);
+		httpBackend.expectGET(url).respond(200, []);
+		httpBackend.expectPOST(url, testUser).respond(200, '');
+		scope.createUser(testUser);
+		httpBackend.flush();
+		expect(scope.valid).toEqual(true);
 	});
 
 });

@@ -15,7 +15,7 @@ gulp.task('default', 'Hosts /dist and watches for changes', ['connect', 'clean',
 'watch']);
 
 gulp.task('cacheTemplates', ['clean', 'sass'], function () {
-  return gulp.src('src/partials/*.html')
+  return gulp.src(['src/partials/*.html'])
     .pipe(templateCache('template.js', { templateHeader:
       'onboarding.run([\'$templateCache\', function($templateCache) {'}))
     .pipe(gulp.dest('temp'));
