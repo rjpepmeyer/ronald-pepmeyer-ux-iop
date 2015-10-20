@@ -6,8 +6,6 @@ describe('createUserController', function() {
 	var testUser = {firstName: 'Bruce', lastName: 'Wayne', email:
 	'bwayne@example.com', phone: '(111) 222-3333'};
 
-	// CREATE USER CONTROLLER TEST
-
 	beforeEach(inject(function($rootScope, $controller) {
 		scope = $rootScope.$new();
 		controller = $controller('createUserController', {$scope: scope});

@@ -18,9 +18,11 @@ module.exports = function(config) {
       '../node_modules/angular/angular.js',
       '../node_modules/angular-resource/angular-resource.js',
       '../node_modules/angular-ui-bootstrap/ui-bootstrap.js',
+      '../node_modules/angular_ui_bootstrap/ui-bootstrap-tpls.js',
       '../node_modules/angular-ui-router/build/angular-ui-router.js',
       '../node_modules/angular-mocks/angular-mocks.js',
       '../dist/js/app.js',
+      '../temp/template.js',
       'client/unit/*.js'
     ],
 

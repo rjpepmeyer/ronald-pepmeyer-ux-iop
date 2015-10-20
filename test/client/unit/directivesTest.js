@@ -14,14 +14,15 @@ describe ('directivesTest', function() {
 		scope.$digest();
 		expect(element.html()).toContain("Select a user from this list");
 	});
-	
-	/* DOESN'T WORK, RELATED TO UI-BOOTSTRAP
+
+	// DOESN'T WORK, RELATED TO UI-BOOTSTRAP
 	it('tests the user profile directive', function() {
-		var element = compile('<user-profile></user-profile>')(scope);
 		httpBackend.expectGET('template/tabs/tab.html').respond(200);
+	 	httpBackend.expectGET('template/tabs/tabset.html').respond(200);
+		var element = compile('<user-profile></user-profile>')(scope);
 		scope.$digest();
-		expect(element.html()).toContain("test");
-	}); */
+		expect(element.html()).toContain("Show less info");
+	});
 
 	it('tests the create user directive', function () {
 		var element = compile('<create-new-user></create-new-user>')(scope);
