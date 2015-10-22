@@ -1,10 +1,53 @@
-<h2> User Profile </h2>
-<button id="toggleButton" name='toggle-visibility' onClick="toggle('additionalInfo','toggleButton');">Show less info</button>
-<ul>
-  <li> <strong> First name: </strong> Mildred </li>
-  <li> <strong> Last name: </strong> Smedley </li>
-  <span id ="additionalInfo" style="display: inline">
-    <li> <strong> Phone: </strong> (319) 555-1234 </li>
-    <li> <strong> Email: </strong> msmedley@example.com </li>
-  </span>
-</ul>
+<tabset>
+  <tab heading="User Profile">
+    <button id='toggleButton' name='toggle-visibility'
+    onClick="toggle('additionalInfo','toggleButton')">Show less info</button>
+    <ul>
+      <li> <strong> First name: </strong> {{user.firstName}} </li>
+      <li> <strong> Last name: </strong> {{user.lastName}} </li>
+      <span id ='additionalInfo' style='display: inline'>
+        <li> <strong> Phone: </strong> {{user.phone}} </li>
+        <li> <strong> Email: </strong> {{user.email}} </li>
+      </span>
+    </ul>
+  </tab>
+
+  <tab heading="Edit User">
+    <form name='editUserForm'>
+    	<label>
+    		<p> First name </p>
+        <input type='text' name='firstName' ng-model='userCopy.firstName' ng-minlength='1' required/>
+        <p class='warning' ng-show='editUserForm.firstName.$invalid'>
+          * required
+        </p>
+      </label>
+
+      <label>
+        <p> Last name </p>
+        <input type='text' name='lastName' ng-model='userCopy.lastName' ng-minlength='1' required/>
+        <p class='warning' ng-show='editUserForm.lastName.$invalid'>
+          * required
+        </p>
+      </label>
+
+      <label>
+        <p> Phone number </p>
+        <input type='text' name='phone' ng-model='userCopy.phone' ng-pattern='phoneRegEx' ng-minlength='10' required/>
+        <p class='warning' ng-show='editUserForm.phone.$invalid'>
+          * valid phone number required
+        </p>
+      </label>
+
+      <button type='submit' id="editButton" value='submit' ng-click='editUser(userCopy)' ng-disabled='editUserForm.$invalid'>
+        Submit
+      </button>
+    </form>
+  </tab>
+
+  <tab heading="Delete User">
+    Delete {{user.firstName}} {{user.lastName}} forever?
+    <button id="deleteButton" ng-click='deleteUser(user._id)'>
+      Delete {{user.firstName}} {{user.lastName}}
+    </button>
+  </tab>
+</tabset>

@@ -6,12 +6,15 @@
 
     <meta charset="utf-8" />
     <title>Onboarding (Ronald Pepmeyer)</title>
-    <link rel="stylesheet" href="sass/main.css" />
-    <script src="js/button.js"></script>
-    <script src="node_modules/angular/angular.js"></script>
-    <script src="node_modules/angular-ui-router/build/angular-ui-router.js"></script>
-    <script src="node_modules/angular-resource/angular-resource.js"></script>
-    <script src="js/mymodule.js"></script>
+
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../node_modules/angular-ui-router/build/angular-ui-router.js"></script>
+    <script src="../node_modules/angular-resource/angular-resource.js"></script>
+    <script src="../node_modules/angular-ui-bootstrap/ui-bootstrap.js"></script>
+    <script src="../node_modules/angular-ui-bootstrap/ui-bootstrap-tpls.js"></script>
+    <link rel="stylesheet" href="sass/bootstrap.min.css"/>
+    <script src="js/app.js"></script>
+    <link rel="stylesheet" href="sass/main.css"/>
 
   </head>
 
@@ -24,15 +27,19 @@
 
       <nav>
         <ul>
-          <li><a ui-sref='user-profile'>User Profile</a></li>
-          <li><a ui-sref='users-list'>Users List</a></li>
-          <li><a ui-sref='create-new-user'>Create New User</a></li>
-          <li><a ui-sref='edit-user'>Edit User</a></li>
+          <strong> Navigation: </strong>
+          <li><a ui-sref='usersList'>Select User</a></li>|
+          <li><a ui-sref='createNewUser'>Create New User</a></li>
         </ul>
       </nav>
 
       <section ui-view>
       </section>
+
+      <footer>
+        This is a Banno UX onboarding project created by Ron J. Pepmeyer.
+        <a href="mailto:ronald.pepmeyer@banno.com">Contact</mailto>
+      </footer>
 
     </main>
 

@@ -23,6 +23,7 @@ $head-font-stack: Garamond, Georgia, serif;
 
 body {
   background-color: #cdcdcd;
+  padding-top: 1em;
 }
 
 main {
@@ -31,16 +32,22 @@ main {
   width: 800px;
   padding: 1em 1em 2em 1em;
   margin: 0 auto 0 auto;
-  @include box-shadow(0.25em, 0.25em, 0.5em, #999);
+  @include box-shadow(0.25em, 0.5em, 0.5em, #999);
   @include border-radius(0.5em, 0.5em, 0.5em, 0.5em);
+  color: #333;
+}
+
+strong {
+  color: #456;
 }
 
 header {
-  color: #fff;
+  color: #eff7ff;
   background-color: #69c;
   box-sizing: border-box;
   width: 100%;
   padding: 1em;
+  text-shadow: -2px -2px #456;
   @include border-radius(0.5em, 0.5em, 0, 0);
 }
 
@@ -50,14 +57,30 @@ nav {
   width: 100%;
   padding: .25em 0 .25em 0;
   background-color: #bdf;
-  @include border-radius(0, 0, 0.5em, 0.5em);
+  color: #456;
+  text-shadow: 1px 1px 1px #fff;
+
 
   ul {
     padding: 0 0 0 1em;
+    margin-top: .5em;
+
+    strong {
+      padding-right: 1em;
+    }
 
     li {
       display: inline;
       margin: 0 .5em 0 0;
+
+      a {
+        color: #15a;
+        text-shadow: none;
+      }
+
+      a:hover {
+        color: #00b;
+      }
     }
   }
 }
@@ -68,8 +91,27 @@ h1, h2 {
 
 section {
 
+  a {
+    color: #15a;
+  }
+
+  a:hover {
+    color: #00b;
+  }
+
+  h2 {
+    color: #345;
+    font-size: 1.25em;
+    box-sizing: border-box;
+    width: 100%;
+    border-bottom: 1px solid #999;
+    padding-bottom: .5em;
+  }
+
   ul {
     clear: both;
+    list-style-type: none;
+    padding-left: 0;
 
     li {
       margin: .25em 0 .25em 0;
@@ -77,54 +119,106 @@ section {
   }
 }
 
-#toggleButton {
-  float: left;
-  position: relative;
-  left: 0;
-  margin-bottom: 1em;
-  margin-left: 2em;
-  background-color: #bdf;
-  color: #222;
-  font-size: .8em;
-  border-width: 1px 2px 2px 1px;
-  border-style: solid;
-  border-color: #bbb #666 #666 #bbb;
-  outline: none;
-  @include border-radius(.5em, .5em, .5em, .5em);
-}
-
-#toggleButton:hover {
-  background-color: #9cf;
-  color: #000;
-  cursor: pointer;
-}
-
-#toggleButton:active {
-  border-width: 2px 1px 1px 2px;
-  border-color: #666 #bbb #bbb #666;
-}
-
 #toggleButton:after {
   @include clearfix();
 }
 
-label {
-  width: 360px;
-  display: block;
-  margin: .25em 0 .25em 0;
+#deleteButton {
+  margin-left: 1em;
 }
 
-input {
-  width: 200px;
-  float: right;
+#toggleButton {
+  margin-bottom: 1em;
 }
 
-input:after {
-  @include clearfix();
+form {
+
+  button {
+    margin: .5em 0 .5em 0;
+    position: relative;
+    left: 160px;
+  }
+
+  p {
+    float: left;
+    width: 9em;
+    margin: 0 1em 0 0;
+    text-align: right;
+  }
+
+  .warning {
+    margin-left: .75em;
+    width: auto;
+    font-size: .75em;
+    color: #990000;
+  }
+
+  label {
+    width: 100%;
+    height: 2em;
+    display: block;
+    margin: .25em 0 .25em 0;
+  }
+
+  input {
+    width: 200px;
+    float: left;
+  }
 }
 
-button {
-  margin: .5em 0 .5em 0;
-  position: relative;
-  left: 160px;
+footer {
+  font-style: italic;
+  color: #666;
+  font-size: .85em;
+  text-align: center;
+  box-sizing: border-box;
+  margin-top: 3em;
+  padding: 1em 1em 0 1em;
+  border-top: 1px solid #999;
+
+  a {
+    color: #006;
+  }
+}
+
+.nav-tabs {
+  border-color: #999;
+  margin-top: 1em;
+
+  li {
+    margin-right: .25em;
+
+    a {
+      border-color: #999;
+      background-color: #eee;
+      color: #15a;
+      font-weight: 500;
+    }
+
+    a:hover {
+      border-color: #999;
+      color: #00b;
+      text-decoration: underline;
+    }
+  }
+
+  li.active a {
+    border-color: #999 #999 transparent #999;
+    color: #15a;
+  }
+
+  li.active a:hover {
+    border-color: #999 #999 transparent #999;
+    color: #15a;
+    text-decoration: none;
+  }
+
+  li.active a:focus {
+    border-color: #999 #999 transparent #999;
+    color: #15a;
+  }
+}
+
+.tab-pane {
+  padding-top: 2em;
 }
