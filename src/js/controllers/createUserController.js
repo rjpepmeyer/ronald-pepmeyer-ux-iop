@@ -5,11 +5,11 @@ onboarding.controller('createUserController', ['$scope', '$stateParams', '$state
 
 	$scope.createUser = function(user) {
 		usersService.createUser(user).then(function(result) {
-			$scope.valid = true;
+			$scope.userCreated = true;
 			console.log(result);
 			$state.go('userProfile', {id: result._id});
 		}, function(error) {
-			$scope.valid = false;
+			$scope.userCreated = false;
 			console.log(error);
 		});
 

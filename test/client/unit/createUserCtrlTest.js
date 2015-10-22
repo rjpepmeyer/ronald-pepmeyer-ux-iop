@@ -17,7 +17,7 @@ describe('createUserController', function() {
 		httpBackend.expectPOST(url, testUser).respond(200, '');
 		scope.createUser(testUser);
 		httpBackend.flush();
-		expect(scope.valid).toEqual(true);
+		expect(scope.userCreated).toEqual(true);
 	});
 
 });

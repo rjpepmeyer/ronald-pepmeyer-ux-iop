@@ -37,7 +37,7 @@ describe('userProfileController', function() {
 		httpBackend.expectDELETE(url + '/1').respond(200);
 		scope.deleteUser();
 		httpBackend.flush();
-		expect(scope.valid).toEqual(true);
+		expect(scope.userDeleted).toEqual(true);
 	})
 
 });

@@ -11,8 +11,7 @@ var templateCache = require('gulp-angular-templatecache');
 var Server = require('karma').Server;
 
 gulp.task('default', 'Hosts /dist and watches for changes', ['connect', 'clean',
-'copy', 'cacheTemplates', 'concatScripts', 'lint', 'sass', 'test',
-'watch']);
+'copy', 'cacheTemplates', 'concatScripts', 'lint', 'sass', 'test', 'watch']);
 
 gulp.task('cacheTemplates', ['clean', 'sass'], function () {
   return gulp.src(['src/partials/*.html'])
