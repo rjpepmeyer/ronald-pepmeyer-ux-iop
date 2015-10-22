@@ -11,7 +11,7 @@ var templateCache = require('gulp-angular-templatecache');
 var Server = require('karma').Server;
 
 gulp.task('default', 'Hosts /dist and watches for changes', ['connect', 'clean',
-'copy', 'cacheTemplates', 'concatScripts', 'lint', 'sass', 'tdd', 'test',
+'copy', 'cacheTemplates', 'concatScripts', 'lint', 'sass', 'test',
 'watch']);
 
 gulp.task('cacheTemplates', ['clean', 'sass'], function () {
@@ -66,15 +66,7 @@ gulp.task('test', ['concatScripts'], function (done) {
   new Server({
     configFile: __dirname + '/test/karma.conf.js',
     singleRun: true
-  }, function() {
-      done();
-  });
-});
-
-gulp.task('tdd', ['concatScripts'], function (done) {
-  new Server({
-    configFile: __dirname + '/test/karma.conf.js'
-  }, done).start();
+   }, function() { done(); }).start();
 });
 
 gulp.task('watch', 'Watches for changes in /src', function() {
