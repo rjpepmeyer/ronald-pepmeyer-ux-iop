@@ -1,3 +1,4 @@
 'use strict';
 
-var onboarding = angular.module('onboarding', ['ui.router', 'ngResource', 'ui.bootstrap']);
+var onboarding = angular.module('onboarding', ['ui.router', 'ngResource',
+'ui.bootstrap', 'ngMockE2E']);
