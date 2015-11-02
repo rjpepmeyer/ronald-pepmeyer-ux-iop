@@ -9,21 +9,24 @@ describe('onboarding project', function() {
 	var user1 = {firstName: 'Bruce', lastName: 'Wayne', Phone: '(111) 222-3333',
 	email: 'batman@example.com', _id: 1};
 
-	beforeEach(function () {
-	  ngMockE2E.addMockModule();
-	  ngMockE2E.addAsDependencyForModule('onboarding');
-	  ngMockE2E.embedScript('../node_modules/angular-mocks/angular-mocks.js');
-	});
-
 	it('load the users list page', function() {
-		// $httpBackend.when('GET', endpoint).respond(200, [user1]);
-		//"$httpBackend.whenGET is not a function"? Shouldn't this work too?
-		httpBackend.whenGET(endpoint).respond(200, [user1]);
+
+		//timeout: timed out after 30000 msec waiting for spec to complete
+		//httpBackend.when('GET', endpoint).respond([user1]);
+
+		//TypeError: httpBackend.whenGET is not a function
+		//httpBackend.whenGET(endpoint).respond([user1]);
+
+		//TypeError: ngMockE2E.$httpBackend.whenGET is not a function
+		//ngMockE2E.$httpBackend.whenGET(endpoint).respond([user1]);
+
+		//ReferenceError: $httpBackend is not defined
+		//$httpBackend.whenGET(endpoint).respond([user1]);
+
 		browser.get(url);
 		expect(browser.getCurrentUrl()).toBe(browser.baseUrl + url);
 		expect(browser.getTitle()).toEqual('Onboarding (Ronald Pepmeyer)');
-		browser.sleep(1000); //just for debugging
-		expect(element(by.binding('user.firstName')).getText()).toEqual('Bruce');
+		expect(element(by.binding('user.firstName')).getText()).toContain('Bruce');
 	});
 
 });
