@@ -4,9 +4,8 @@ var user1 = {firstName: 'Bruce', lastName: 'Wayne', Phone: '(111) 222-3333',
 email: 'batman@example.com', _id: 1};
 var user2 = {firstName: 'Clark', lastName: 'Kent', Phone: '(222) 333-4444',
 email: 'superman@example.com', _id: 2};
-var mockFunction;
 
-mockFunction = function() {
+var mockFunction = function() {
   angular.module('userMock', ['onboarding', 'ngMockE2E'])
   .run(function ($httpBackend) {
 		$httpBackend.whenGET(endpoint).respond(function(){
