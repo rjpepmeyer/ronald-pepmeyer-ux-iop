@@ -6,10 +6,10 @@ var user2 = {firstName: 'Clark', lastName: 'Kent', Phone: '(222) 333-4444',
 email: 'superman@example.com', _id: 2};
 
 var mockFunction = function() {
-  angular.module('userMock', ['onboarding', 'ngMockE2E'])
+  angular.module('userMock', ['onboarding', 'ng-mock-e2e'])
   .run(function ($httpBackend) {
 		$httpBackend.whenGET(endpoint).respond(function(){
-      //alert('mock get');
+      alert('mock get');
       return (200, [user1, user2]);
     });
 	});

@@ -3,6 +3,6 @@ exports.config = {
 	capabilities: { 'browserName': 'chrome' },*/
   specs: ['client/e2e/spec.js'],
   jasmineNodeOpts: {
-    defaultTimeoutInterval: 10000
+    defaultTimeoutInterval: 15000
   }
 };
