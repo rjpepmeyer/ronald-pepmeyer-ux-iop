@@ -2,9 +2,7 @@
 
 describe('onboarding project', function() {
 
-	//var ngMockE2E = require('ng-mock-e2e');
 	var mocks;
-	//var $httpBackend = ngMockE2E.$httpBackend;
 	var url = 'http://localhost:1820/#/usersList/';
 	var endpoint = 'http://localhost:24149/users';
 
