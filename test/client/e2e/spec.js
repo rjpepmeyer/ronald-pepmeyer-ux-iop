@@ -10,28 +10,8 @@ describe('onboarding project', function() {
 
 	beforeEach(function() {
 		mocks = require('./mocks');
-
-	  // Times out
 		browser.addMockModule('userMock', mocks.mockFunction);
-
-
-		/*
-		browser.addMockModule('userMock', function() {
-  		angular.module('userMock', ['onboarding', 'ng-mock-e2e'])
-			.run(function($httpBackend) {
-				$httpBackend.whenGET(endpoint).respond([{firstName: 'Bruce'}]);
-			});
-		});
-		browser.addMockModule('userMock', function() {
-			angular.module('userMock', ['onboarding', 'ng-mock-e2e', 'mocks'])
-			.run(function($httpBackend) {
-				mockFunction();
-			});
-		});
-		browser.addMockModule('userMock', function() {
-			angular.module('userMock');
-		});
-		*/
+		browser.get(url);
 
 	});
 
