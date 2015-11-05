@@ -9,35 +9,25 @@ describe('onboarding project', function() {
 	var endpoint = 'http://localhost:24149/users';
 
 	beforeEach(function() {
-		mocks = require('./mocks.js');
+		mocks = require('./mocks');
 
-	  /* Times out
+	  // Times out
 		browser.addMockModule('userMock', mocks.mockFunction);
-		*/
 
-		/* mockFunction not defined
-		browser.addMockModule('userMock', mockFunction);
-		*/
 
-		/* Times out
+		/*
 		browser.addMockModule('userMock', function() {
   		angular.module('userMock', ['onboarding', 'ng-mock-e2e'])
 			.run(function($httpBackend) {
 				$httpBackend.whenGET(endpoint).respond([{firstName: 'Bruce'}]);
 			});
 		});
-		*/
-
-		/* Times out
 		browser.addMockModule('userMock', function() {
 			angular.module('userMock', ['onboarding', 'ng-mock-e2e', 'mocks'])
 			.run(function($httpBackend) {
 				mockFunction();
 			});
 		});
-		*/
-
-		/* Times out
 		browser.addMockModule('userMock', function() {
 			angular.module('userMock');
 		});
