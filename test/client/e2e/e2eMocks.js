@@ -10,9 +10,11 @@ exports.mockFunction = function() {
 
   angular.module('userMock', ['onboarding', 'ngMockE2E'])
   .run(function ($httpBackend) {
+    alert("mockFunction runs");
 		$httpBackend.whenGET(endpoint).respond(function(){
-      alert('mock get');
-      return (200, [user1, user2]);
+      return [200, [user1, user2]];
     });
+    $httpBackend.whenGET(/.*/).passThrough();
 	});
+
 }

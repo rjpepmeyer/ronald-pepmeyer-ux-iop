@@ -3,12 +3,12 @@
 describe('onboarding project', function() {
 
 	var mocks;
-	var url = 'http://localhost:1820/#/usersList/';
+	var url = 'http://localhost:1820';
 	var endpoint = 'http://localhost:24149/users';
 
 	beforeEach(function() {
 		mocks = require('./e2eMocks');
-		browser.addMockModule('userMock', mocks.mockFunction);
+		browser.addMockModule('backendMock', mocks.mockFunction);
 		browser.get(url);
 	});
 
