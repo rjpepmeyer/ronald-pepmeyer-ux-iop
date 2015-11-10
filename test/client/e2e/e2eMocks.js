@@ -8,8 +8,9 @@ exports.mockFunction = function() {
   email: 'superman@example.com', _id: 2};
 	var endpoint = 'http://localhost:24149/users';
 
-  angular.module('userMock', ['onboarding', 'ngMockE2E'])
+  angular.module('userMock', ['ngMockE2E'])
   .run(function ($httpBackend) {
+    console.log("-LOG- mocks");
 		$httpBackend.whenGET(endpoint).respond(function(){
       return [200, [user1, user2]];
     });
