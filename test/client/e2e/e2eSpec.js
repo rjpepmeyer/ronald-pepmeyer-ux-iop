@@ -6,6 +6,17 @@ describe('onboarding project', function() {
 	var url = 'http://localhost:1820/#/';
 	var endpoint = 'http://localhost:24149/users';
 
+	/** Slows down testing **********************************/
+	var origFn = browser.driver.controlFlow().execute;
+	browser.driver.controlFlow().execute = function() {
+	  var args = arguments;
+	  origFn.call(browser.driver.controlFlow(), function() {
+	    return protractor.promise.delayed(50);
+	  });
+	  return origFn.apply(browser.driver.controlFlow(), args);
+	};
+	/********************************************************/
+
 	beforeEach(function() {
 		mocks = require('./e2eMocks');
 		browser.addMockModule('userMock', mocks.mockFunction);
@@ -18,7 +29,7 @@ describe('onboarding project', function() {
 	});
 
 	it('loads the \'user profile\' screen', function() {
-		browser.get(url.concat('userProfile/1'));
+		element(by.linkText('Bruce Wayne')).click();
 		expect(browser.getCurrentUrl()).toBe(url + 'userProfile/1');
 		expect(element(by.id('uiview')).getText()).toContain('Show less info');
 	});
