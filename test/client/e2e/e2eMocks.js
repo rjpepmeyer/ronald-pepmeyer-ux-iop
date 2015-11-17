@@ -17,7 +17,7 @@ exports.mockFunction = function() {
     });
     $httpBackend.whenPOST(endpoint, user3).respond(function(){
       return [200, ''];
-    })
+    });
 	});
 
 }

@@ -5,6 +5,7 @@ describe('onboarding project', function() {
 	var mocks;
 	var url = 'http://localhost:1820/#/';
 	var endpoint = 'http://localhost:24149/users';
+	mocks = require('./e2eMocks');
 
 	/** Slows down testing **********************************/
 	var origFn = browser.driver.controlFlow().execute;
@@ -14,11 +15,9 @@ describe('onboarding project', function() {
 	    return protractor.promise.delayed(50);
 	  });
 	  return origFn.apply(browser.driver.controlFlow(), args);
-	};
-	/********************************************************/
+	};/******************************************************/
 
 	beforeEach(function() {
-		mocks = require('./e2eMocks');
 		browser.addMockModule('userMock', mocks.mockFunction);
 	});
 
@@ -34,7 +33,10 @@ describe('onboarding project', function() {
 		expect(element(by.id('uiview')).getText()).toContain('Show less info');
 	});
 
-	it('loads the correct user profile', function() {
+	it('loads the correct user', function() {
+		// This is the test that fails.
+		// The user's data does not get bound to the page.
+		// This also makes it impossible to test the edit & delete portions.
 		expect(element(by.id('uiview')).getText()).toContain('batman@example.com');
 	});
 
@@ -43,24 +45,22 @@ describe('onboarding project', function() {
 		expect(element(by.id('uiview')).getText()).toContain('phone number');
 	});
 
-	it('loads the correct user to edit', function() {});
-
-	it('edits the user correctly', function() {});
+	// To implement when user binding bug is resolved
+	// it('edits the user', function() {});
 
 	it('loads \'delete user\' screen', function() {
 		element(by.linkText('Delete User')).click();
 		expect(element(by.id('uiview')).getText()).toContain('forever');
 	});
 
-	it('loads the correct user to delete', function() {});
-
-	it('deletes the user correctly', function() {});
+	// To implement when user binding bug is resolved
+	// it('deletes the user', function() {});
 
 	it('creates a new user', function() {
 		var user3 = {firstName: 'Harvey', lastName: 'Dent', phone: '(333) 444-5555',
 	  email: 'twoface@example.com'};
 
-		browser.get(url.concat('createNewUser/'));
+		element(by.linkText('Create New User')).click();
 		expect(browser.getCurrentUrl()).toBe(url + 'createNewUser/');
 		element(by.model('user.firstName')).sendKeys(user3.firstName);
 		element(by.model('user.lastName')).sendKeys(user3.lastName);
