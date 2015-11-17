@@ -14,7 +14,6 @@ exports.mockFunction = function() {
 		$httpBackend.whenGET(endpoint).respond(function(){
       return [200, [user1, user2]];
     });
-    $httpBackend.whenGET(/.*/).passThrough();
 	});
 
 }
