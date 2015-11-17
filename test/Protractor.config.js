@@ -5,8 +5,5 @@ exports.config = {
   specs: ['client/e2e/e2eSpec.js'],
   jasmineNodeOpts: {
     defaultTimeoutInterval: 10000
-  },
-  onPrepare: function() {
-    browser.get("http://localhost:1820/#/usersList/");
   }
 }

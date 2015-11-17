@@ -6,14 +6,18 @@ exports.mockFunction = function() {
   email: 'batman@example.com', _id: 1};
   var user2 = {firstName: 'Clark', lastName: 'Kent', Phone: '(222) 333-4444',
   email: 'superman@example.com', _id: 2};
+  var user3 = {firstName: 'Harvey', lastName: 'Dent', Phone: '(333) 444-5555',
+  email: 'twoface@example.com'};
 	var endpoint = 'http://localhost:24149/users';
 
   angular.module('userMock', ['ngMockE2E'])
   .run(function ($httpBackend) {
-    console.log("-LOG- mocks");
 		$httpBackend.whenGET(endpoint).respond(function(){
       return [200, [user1, user2]];
     });
+    $httpBackend.whenPOST(endpoint, user3).respond(function(){
+      return [200, ''];
+    })
 	});
 
 }
