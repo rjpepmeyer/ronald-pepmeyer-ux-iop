@@ -12,7 +12,7 @@ describe('onboarding project', function() {
 	browser.driver.controlFlow().execute = function() {
 	  var args = arguments;
 	  origFn.call(browser.driver.controlFlow(), function() {
-	    return protractor.promise.delayed(50);
+	    return protractor.promise.delayed(25);
 	  });
 	  return origFn.apply(browser.driver.controlFlow(), args);
 	};/******************************************************/
@@ -46,9 +46,8 @@ describe('onboarding project', function() {
 		element(by.model('userCopy.phone')).clear();
 		element(by.model('userCopy.phone')).sendKeys('(123) 456-7890');
 		element(by.id('editButton')).click();
-
-		// Should E2E test for success of PUT action?
-
+		expect(element(by.id('uiview')).getText()).toContain('Show less info');
+		// "Show less info" means it went to the profile, which indicates success
 	});
 
 	it('loads \'delete user\' screen', function() {
@@ -58,15 +57,13 @@ describe('onboarding project', function() {
 
 	it('deletes the user', function() {
 		element(by.id('deleteButton')).click();
-
-		// Should E2E test for success of DELETE action?
-
+		expect(element(by.id('uiview')).getText()).toContain('Clark Kent');
+		//"Clark Kent" means it went back to the user list, which indicates success
 	});
 
 	it('creates a new user', function() {
 		var user3 = {firstName: 'Harvey', lastName: 'Dent', phone: '(333) 444-5555',
 	  email: 'twoface@example.com'};
-
 		element(by.linkText('Create New User')).click();
 		expect(browser.getCurrentUrl()).toBe(url + 'createNewUser/');
 		element(by.model('user.firstName')).sendKeys(user3.firstName);
@@ -74,9 +71,8 @@ describe('onboarding project', function() {
 		element(by.model('user.phone')).sendKeys(user3.phone);
 		element(by.model('user.email')).sendKeys(user3.email);
 		element(by.id('submitButton')).click();
-
-		// Should E2E test for success of POST action?
-
+		expect(element(by.id('uiview')).getText()).toContain('Show less info');
+		// "Show less info" means it went to the profile, which indicates success
 	});
 
 });
