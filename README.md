@@ -10,7 +10,10 @@ It builds from /src into /dist and hosts that at localhost:1820.
 
 First, you must run "mongod" to start Mongo, then run "node index.js" from the
 UX onboarding database directory to start up the database. Then, run "gulp"
-while in this directory (/ronald-pepmeyer-ux-iop).
+while in this directory (/ronald-pepmeyer-ux-iop). This automatically runs the
+unit tests as well. To run the E2E tests, run "webdriver-manager start" in one
+terminal window and "protractor Protractor.config.js" in another terminal window
+after navigating to the /test directory.
 
 ## dependencies
 

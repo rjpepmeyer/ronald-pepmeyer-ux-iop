@@ -34,27 +34,34 @@ describe('onboarding project', function() {
 	});
 
 	it('loads the correct user', function() {
-		// This is the test that fails.
-		// The user's data does not get bound to the page.
-		// This also makes it impossible to test the edit & delete portions.
 		expect(element(by.id('uiview')).getText()).toContain('batman@example.com');
 	});
 
 	it('loads \'edit user\' screen', function() {
 		element(by.linkText('Edit User')).click();
-		expect(element(by.id('uiview')).getText()).toContain('phone number');
+		expect(element(by.id('uiview')).getText()).toContain('Phone number');
 	});
 
-	// To implement when user binding bug is resolved
-	// it('edits the user', function() {});
+	it('edits the user', function() {
+		element(by.model('userCopy.phone')).clear();
+		element(by.model('userCopy.phone')).sendKeys('(123) 456-7890');
+		element(by.id('editButton')).click();
+
+		// Should E2E test for success of PUT action?
+
+	});
 
 	it('loads \'delete user\' screen', function() {
 		element(by.linkText('Delete User')).click();
 		expect(element(by.id('uiview')).getText()).toContain('forever');
 	});
 
-	// To implement when user binding bug is resolved
-	// it('deletes the user', function() {});
+	it('deletes the user', function() {
+		element(by.id('deleteButton')).click();
+
+		// Should E2E test for success of DELETE action?
+
+	});
 
 	it('creates a new user', function() {
 		var user3 = {firstName: 'Harvey', lastName: 'Dent', phone: '(333) 444-5555',
@@ -67,6 +74,9 @@ describe('onboarding project', function() {
 		element(by.model('user.phone')).sendKeys(user3.phone);
 		element(by.model('user.email')).sendKeys(user3.email);
 		element(by.id('submitButton')).click();
+
+		// Should E2E test for success of POST action?
+
 	});
 
 });
