@@ -22,18 +22,19 @@ $head-font-stack: Garamond, Georgia, serif;
 }
 
 body {
-  background-color: #cdcdcd;
-  padding-top: 1em;
+  background-color: #ddd;
+  padding: 1em 1em 1em 1em;
 }
 
 main {
   font-family: $body-font-stack;
   background-color: #fff;
-  width: 800px;
+  width: 100%;
+  max-width: 800px;
   padding: 1em 1em 2em 1em;
   margin: 0 auto 0 auto;
-  @include box-shadow(0.25em, 0.5em, 0.5em, #999);
-  @include border-radius(0.5em, 0.5em, 0.5em, 0.5em);
+  @include box-shadow(0.25em, 0.5em, 0.5em, #aaa);
+  @include border-radius(1em, 1em, 1em, 1em);
   color: #333;
 }
 
@@ -47,8 +48,12 @@ header {
   box-sizing: border-box;
   width: 100%;
   padding: 1em;
-  text-shadow: -2px -2px #456;
+  text-shadow: -1px -1px #456;
   @include border-radius(0.5em, 0.5em, 0, 0);
+
+  h1 {
+    margin: .25em 0 .25em 0;
+  }
 }
 
 nav {
@@ -58,7 +63,7 @@ nav {
   padding: .25em 0 .25em 0;
   background-color: #bdf;
   color: #456;
-  text-shadow: 1px 1px 1px #fff;
+  text-shadow: 1px 1px 1px #def;
 
 
   ul {
@@ -168,16 +173,16 @@ form {
 
 footer {
   font-style: italic;
-  color: #666;
+  color: #555;
   font-size: .85em;
   text-align: center;
   box-sizing: border-box;
-  margin-top: 3em;
+  margin: 3em 0 0 0;
   padding: 1em 1em 0 1em;
   border-top: 1px solid #999;
 
   a {
-    color: #006;
+    color: #15a;
   }
 }
 
