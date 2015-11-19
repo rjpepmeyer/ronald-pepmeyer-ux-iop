@@ -7,16 +7,6 @@ describe('onboarding project', function() {
 	var endpoint = 'http://localhost:24149/users';
 	mocks = require('./e2eMocks');
 
-	/** Slows down testing **********************************/
-	var origFn = browser.driver.controlFlow().execute;
-	browser.driver.controlFlow().execute = function() {
-	  var args = arguments;
-	  origFn.call(browser.driver.controlFlow(), function() {
-	    return protractor.promise.delayed(25);
-	  });
-	  return origFn.apply(browser.driver.controlFlow(), args);
-	};/******************************************************/
-
 	beforeEach(function() {
 		browser.addMockModule('userMock', mocks.mockFunction);
 	});
