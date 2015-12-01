@@ -1,6 +1,6 @@
 {
   "name": "ron_pepmeyer_onboarding",
-  "version": "7.1.1",
+  "version": "7.2.2",
   "description": "Ron Pepmeyer's UX onboarding project",
   "author": "Ron Pepmeyer",
   "dependencies": {
@@ -25,6 +25,7 @@
     "karma": "^0.13.10",
     "karma-jasmine": "^0.3.6",
     "karma-phantomjs-launcher": "^0.2.1",
+    "ng-mock-e2e": "^0.1.1",
     "phantomjs": "^1.9.18"
   }
 }

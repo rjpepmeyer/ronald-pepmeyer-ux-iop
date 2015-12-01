@@ -1,7 +1,7 @@
 'use strict';
 
 onboarding.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
-	$urlRouterProvider.otherwise('/usersList/:id');
+	$urlRouterProvider.otherwise('/usersList/');
 
 	$stateProvider
 		.state('userProfile', {
