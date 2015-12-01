@@ -22,8 +22,8 @@ onboarding.factory('usersService', function(usersFactory) {
 		console.log(option);
 		return usersFactory.update({id: id}, option).$promise;
 	}
-	function deleteUser(options) {
-		return usersFactory.remove({id: options}).$promise;
+	function deleteUser(id) {
+		return usersFactory.remove({id: id}).$promise;
 	}
 
 	var users = getUsers();

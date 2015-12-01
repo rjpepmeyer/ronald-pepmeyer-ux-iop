@@ -9,7 +9,7 @@ It builds from /src into /dist and hosts that at localhost:1820.
 ## how to use
 
 First, you must run "mongod" to start Mongo, then run "node index.js" from the
-UX onboarding database directory to start up the database. Then, run 'gulp'
+UX onboarding database directory to start up the database. Then, run "gulp"
 while in this directory (/ronald-pepmeyer-ux-iop).
 
 ## dependencies

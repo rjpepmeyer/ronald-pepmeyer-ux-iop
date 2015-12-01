@@ -3,8 +3,6 @@
 onboarding.controller('userProfileController', ['$scope', '$stateParams', '$state',
 'usersService', function($scope, $stateParams, $state, usersService) {
 
-	$scope.phoneRegEx = /^\(?(\d{3})\)?[-|' ']?(\d{3})[-|' ']?(\d{4})$/;
-
 	function getUser() {
 		usersService.getUsers().then(function(result) {
 			angular.forEach(result, function(user) {
@@ -18,15 +16,15 @@ onboarding.controller('userProfileController', ['$scope', '$stateParams', '$stat
 		});
 	}
 
-	$scope.deleteUser = function(user) {
-		if (confirm('Are you sure you want to delete this user?')) {
-			usersService.deleteUser(user).then(function(result) {
-				console.log(result);
-				$state.go('usersList');
-			}, function(error) {
-				console.log(error);
-			});
-		}
+	$scope.deleteUser = function() {
+		usersService.deleteUser($stateParams.id).then(function(result) {
+			$scope.userDeleted = true;
+			console.log(result);
+			$state.go('usersList');
+		}, function(error) {
+			$scope.userDeleted = false;
+			console.log(error);
+		});
 	};
 
 	$scope.editUser = function(options) {
